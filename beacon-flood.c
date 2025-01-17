@@ -107,6 +107,9 @@ int main(int argc, char *argv[]) {
             beacon_frame_t beacon;
             build_beacon_frame(&beacon, ssids[i]);
 
+            // Print the SSID being sent
+            printf("Sending Beacon frame with SSID: %s\n", ssids[i]);
+
             // Send the packet
             if (send_beacon_packet(sock, &radiotap, &beacon, interface) < 0) {
                 perror("send_beacon_packet");
